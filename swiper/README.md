@@ -10,8 +10,9 @@
             <li><a href="javascript:void(0);" id="btn4" hidefocus="true">第四页</a></li>
         </ul>
     </header>
-
- <div class="swiper-container favor-list">
+    
+    
+    <div class="swiper-container favor-list">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                <div class="divHgight" style="background:red; height: 1000px">
@@ -32,6 +33,8 @@
             </div>
         </div>
    </div>
+
+
 
 
 
