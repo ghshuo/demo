@@ -1,5 +1,5 @@
 # Swiper 移动端tab切换+滑动自适应
-
+这个是基于Swiper库做的
 内容我给了一个高度，方便查看效果， 应用到实际项目中不用设置高度 内容自动撑开
 
     <header class="favor-header-bar">
