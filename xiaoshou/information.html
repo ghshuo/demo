@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="always" name="referrer">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>工单信息</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css"  href="satic/easyui/easyui.css">
+	<link rel="stylesheet" type="text/css"  href="satic/easyui/icon.css"/>
+	<link rel="stylesheet" type="text/css"  href="satic/bootstarp/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css"  href="satic/jqueryUI/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css"  href="css/inform.css">
+    <link rel="stylesheet" type="text/css"  href="css/error.css">
+	<style>
+
+	</style>
+
+</head>
+<body>
+	<div id="informtion">
+		<div class="inform_top">
+			<!--<img src="img/dx.png"/>-->
+			<p>销售助手WEB版</p>
+			<button id="NavNext" onclick="MsoNavNext()">下一条</button>
+			<button id="previousBtn">上一条</button>
+		</div>
+		<!--用户基础信息-->
+		<div id="user">
+			<div class="user_informtion">
+				<img src="img/yhjc.png"/>
+				<div class="user_infor">用户基础信息</div>
+			</div>
+			<table border="1" cellspacing="0" cellpadding="2" id="user_table"  bordercolor="#8eaadb">
+				<tbody>
+					<tr>
+						<th>用户名称： &nbsp;</th>
+						<td id="cust_name"></td>
+						<th>工单用户号码： &nbsp;</th>
+						<td id="acc_nbr"></td>
+					</tr>
+					<tr>
+						<th>归属地： &nbsp;</th>
+						<td id="parReginName"></td>
+						<th>站点： &nbsp;</th>
+						<td id="site_name"></td>
+					</tr>
+					<tr>
+						<th>入网渠道： &nbsp;</th>
+						<td id="channel_name"></td>
+						<th>用户状态： &nbsp;</th>
+						<td id="user_status"></td>
+					</tr>
+					<tr>
+						<th>付费方式： &nbsp;</th>
+						<td id="charge_type"></td>
+						<th>星级： &nbsp;</th>
+						<td id="vid_rank"></td>
+					</tr>
+					<tr>
+						<th>是否4G卡： &nbsp;</th>
+						<td id="is_4G_card"></td>
+						<th>账户余额： &nbsp;</th>
+						<td id="user_balance"></td>
+					</tr>
+					<tr>
+						<th>接入方式： &nbsp;</th>
+						<td id="acc_type"></td>
+						<th>是否4G终端： &nbsp;</th>
+						<td id="is_4G_term"></td>
+					</tr>
+					<tr>
+						<th>终端型号： &nbsp;</th>
+						<td id="term_mode"></td>
+						<th>接入速率： &nbsp;</th>
+						<td id="acc_rate"></td>
+					</tr>
+					<tr>
+						<th>终端使用时长： &nbsp;</th>
+						<td id="online_time"></td>
+						<th>联系人1： &nbsp;</th>
+						<td id="contact1"></td>
+						
+					</tr>
+					<tr>
+						<th>联系人2： &nbsp;</th>
+						<td id="contact2"></td>
+						<th>其他联系人： &nbsp;</th>
+						<td id="contact3"></td>
+					</tr>
+					<tr>
+						
+					</tr>
+						<tr>
+						<th>成员号码： &nbsp;</th>
+						<td  colspan="3"><a href="" id="prod_num_list" ></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--用户行为信息-->
+		<div id="behavior">
+			<div class="behavior_informtion">
+				<img src="img/yhxw.png"/>
+				<div class="user_infor">用户行为信息</div>
+			</div>
+			<table border="1" cellspacing="0" cellpadding="2" id="behavior_table"  bordercolor="#9cc2e5">
+				<tbody>
+					<tr>
+						<th>近三个月平均费用(元)： &nbsp;</th>
+						<td id="avg_bill"></td>
+						<th>本月已用费用(元)： &nbsp;</th>
+						<td id="mon_Bill"></td>
+					</tr>
+					<tr>
+						<th>近三个月平均通话(分钟)： &nbsp;</th>
+						<td id="avg_voice"></td>
+						<th>本月已用通话(分钟)： &nbsp;</th>
+						<td id="mon_Voice"></td>
+					</tr>
+					<tr>
+						<th>近三个月平均流量(兆)： &nbsp;</th>
+						<td id="avg_flow"></td>
+						<th>本月已用流量(兆)： &nbsp;</th>
+						<td id="mon_Flow"></td>
+					</tr>
+					<tr>
+						<th>上月购买流量包流量(兆)： &nbsp;</th>
+						<td id="last_sale_flow"></td>
+						<th>当前账户余额(元)： &nbsp;</th>
+						<td id="cur_bill"></td>
+					</tr>
+					<tr>
+						<th>上月宽带使用流量(G)： &nbsp;</th>
+						<td id="last_band_flow"></td>
+						<th>当前剩余流量(兆)： &nbsp;</th>
+						<td id="cur_flow"></td>
+					</tr>
+					<tr>
+						<th>上月累计停机次数： &nbsp;</th>
+						<td id="last_stop_cnt"></td>
+						<th>当前剩余通话(分钟)： &nbsp;</th>
+						<td id="cur_voice"></td>
+					</tr>
+					<tr>
+						<th>上月累计欠费次数： &nbsp;</th>
+						<td colspan="3" id="last_owe_cnt"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--销售品信息-->
+		<div id="Sale">
+			<div class="Sale_informtion">
+				<img src="img/yhxw.png"/>
+				<div class="user_infor">销售品信息</div>
+			</div>
+			<table border="1" cellspacing="0" cellpadding="2" id="Sale_table"  bordercolor="#a8d08d">
+				<tbody>
+					<tr>
+						<th>套餐名称： &nbsp;</th>
+						<td><a href="" id="sales_name"></a></td>
+						<th>套餐办理时间： &nbsp;</th>
+						<td id="sales_create_time"></td>
+					</tr>
+					<tr>
+						<th>套餐价格： &nbsp;</th>
+						<td id="amount"></td>
+						<th>套餐办理渠道： &nbsp;</th>
+						<td id="offer_channel"></td>
+					</tr>
+					<tr>
+						<th>合约名称： &nbsp;</th>
+						<td><a href="" id="contract_name"></a></td>
+						<th>合约办理时间： &nbsp;</th>
+						<td id="contract_create_time"></td>
+					</tr>
+					<tr>
+						<th>合约失效时间： &nbsp;</th>
+						<td id="contract_invalid_time"></td>
+						<th>合约办理渠道： &nbsp;</th>
+						<td id="plan_channel"></td>
+					</tr>
+					<tr>
+						<th>必选流量包名称： &nbsp;</th>
+						<td id="req_pkg_name"></td>
+						<th>ITV包名称： &nbsp;</th>
+						<td id="itv_pkg_name"></td>
+					</tr>
+					<tr>
+						<th>宽带提速包名称： &nbsp;</th>
+						<td id="band_pkg_name"></td>
+						<th>补贴方式： &nbsp;</th>
+						<td id="subsidy_type"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--用户特征及推荐方案-->
+		<div id="characteristics">
+			<div class="programme">
+				<img src="img/sxxx.png"/>
+				<div class="user_infor">用户特征及推荐方案</div>
+			</div>
+			<!--用户特征描述-->
+			<div class="describe_left">
+				<div class="describe">
+					<img src="img/describe.png"/>
+					<div class="describeDiv">用户特征</div>
+				</div>
+				<div class="describe_content">
+					<div><span>【客户画像】</span><span id="portrait"></span></div>
+					<div><span>【产品信息】</span><span id="product"></span></div>
+					<div><span>【终端信息】</span><span id="terminal"></span></div>
+					<div><span>【使用行为】</span><span id="behavi"></span></div>
+					<div><span>【DPI信息】</span><span id="dpi"></span></div>
+				</div>
+			</div>
+			<!--推荐方案-->
+			<div class="describe_left">
+				<div class="describe">
+					<img src="img/yhtz.png"/>
+					<div class="describeDiv">推荐方案</div>
+				</div>
+				<div class="describe_content">
+					<div><span>&nbsp;&nbsp;提值路径：</span><span id="leftVule"></span></div>
+					<div><span>&nbsp;&nbsp;保值路径：</span><span id="hedge"></span></div>
+					<div><span>&nbsp;&nbsp;降值路径：</span><span id="dropVule"></span></div>
+					<div><span>&nbsp;&nbsp;主流路径：</span><span id="stream"></span></div>
+				</div>
+			</div>
+		</div>
+		<!--营销话术及短信-->
+		<div id="marketing">
+			<div class="Salesterms">
+				<img src="img/tjfa.png"/>
+				<div class="user_infor">营销话术及短信</div>				
+			</div>
+			<!--销售话术-->
+			<div class="marketing_left">
+				<div class="sales">
+					<img src="img/marketing.png"/>
+					<div class="describeDiv">营销术语</div>
+				</div>
+				<div class="describe_content">
+					<p class="describe_name"></p>
+					<div id="content_div">
+						
+					</div>
+					<textarea rows="8" cols="30" id="content" readonly="readonly" style="border:none;"></textarea>
+				</div>
+				<div class="duanxin" style="width: 100%; margin: 0 auto;text-align: center; margin-top: 22px;">
+					<button type="button" class="btn btn-success" onclick="singbtn()">编辑术语</button>
+					<button type="button" class="btn btn-success"onclick="baoCun()">保存术语</button>
+					<button type="button" class="btn btn-success" id="web">外呼</button>
+				</div>
+
+			</div>
+			<!--销售短信-->
+			<div class="marketing_left">
+				<div class="sales">
+					<img src="img/sales.png"/>
+					<div class="describeDiv">营销短信</div>
+					<div id="bianji"></div>
+				</div>
+				<div class="describe_content" style="border: none;">
+					<!--<div id="sms_content"></div>-->
+					<!--<input type="text" name="sms_content" id="sms_content" value="" />-->
+					<textarea rows="8" cols="30" id="sms_content" readonly="readonly"></textarea>
+				</div>
+				<div class="duanxin" style="width: 100%; margin: 0 auto;text-align: center; margin-top: 22px;">
+					<button type="button" class="btn btn-success" onclick="sing()">编辑短信</button>
+					<button type="button" class="btn btn-success" onclick="singleSend()">发送短信</button>
+					<button type="button" class="btn btn-success" onclick="yourself()">发给自己</button>					
+				</div>
+			</div>
+		</div>
+		<!--上报及评估-->
+		<div id="reporting">
+			<div class="report_top">
+				<img src="img/shang.png"/>
+				<div class="user_infor">上报及评估</div>	
+			</div>
+			<div class="report">
+				<img src="img/marketing.png"/>
+				<div class="describeDiv">工单的流转记录</div>
+			</div>
+			<div id="liuzhuan">
+				<ul id="liuzhuanUl">
+					<!--<li>
+						<div><span>工单号</span></div>
+						<div><span>操作人</span></div>
+						<div><span>操作时间</span></div>
+						<div><span>类型</span></div>
+						<div><span>起始部门</span></div>
+						<div><span>目标部门</span></div>
+						<div><span>起始业务员</span></div>
+						<div><span>目标业务员</span></div>
+						<div><span>执行状态</span></div>
+						<div><span>反馈类型</span></div>
+						<div><span>反馈原因</span></div>
+						<div><span>备注</span></div>
+					</li>-->
+				</ul>
+			</div>
+			<!--备注及上报-->
+			<div class="reporting_left" id="resa">
+				
+				<div class="report">
+					<img src="img/marketing.png"/>
+					<div class="describeDiv">备注及上报</div>
+				</div>
+				<div class="describe_content1" style="border: none;">
+					<!--<div id="des"></div>-->
+					<!--<textarea rows="8" cols="30" id="des"></textarea>-->
+					<span>执行渠道：</span>
+					<select id="pro" style="width:128px;">
+						<option value="">请选择</option>
+						<option value="4">外呼</option>
+						<option value="5">短信</option>
+						<option value="6">营业厅</option>
+						<option value="7">上门</option>
+						<option value="8">微信/qq</option>
+						<option value="9">邮件</option>
+						<option value="10">宽带弹屏</option>
+						<option value="11">其他</option>
+						
+					</select>
+					
+					<fieldset id="global_location">
+						<p>执行状态：
+							<select class="country" data-first-title="请选择" disabled="disabled" style="width:128px;"></select>
+							<select class="state" style="width:128px;"></select>
+							<select class="city" style="width:128px;"></select>
+							<!--上报按钮-->
+							<button ctype="button" class="btn btn-primary" onclick="reportJob()" style="margin-top: -14px;">上报</button>
+							<textarea rows="8" cols="30" id="dess" style="display: none;"  onMouseOut="weasd()"placeholder="请填写原因"></textarea>
+							<textarea rows="8" cols="30" id="des" style="display: none;" placeholder="请填写备注"></textarea>
+							<!--<select class="region" disabled="disabled"></select>-->
+						</p>
+					</fieldset>
+					<!--<div id="shangbao">
+						<button class="but1" onclick="writele()">执行成功</button>
+						<button class="but2" onclick="fail()">执行失败</button>
+						<button class="but3" onclick="delay()">延迟执行</button>
+						
+					</div>-->
+				</div>
+				
+				
+			</div>
+			<!--评估结果-->
+			<div class="reporting_left">
+				<div class="report">
+					<img src="img/sales.png"/>
+					<div class="describeDiv">评估结果</div>
+				</div>
+				<div class="describe_content" style="height: 230px;">
+					<div id="assessment_des"></div>
+				</div>
+			</div>
+		</div>
+		<div style="width: 100%;height: 50px;">
+		</div>
+	</div>
+	<div id="wrapper"></div>
+	<div id="loginMask"></div>
+	<div id="newspapers">
+		<div class="newsmeagess"></div>
+       	<button class="news_determine" onclick="determine()">确定</button>
+	</div>
+	<!--合约内容显示-->
+	<div id="contract">
+		<div class="contract_top">
+			<div id="con_img"><img src="img/tjfa.png"/></div>
+			<div class="sheng">合约描述信息</div>
+			<div class="contract_close" onclick="contractClose()">X</div>
+			<div id="ch_messages"></div>
+		</div>
+		<div id="contract_c">
+			<ul class="members"></ul>
+			<div id="modify">
+				修改主联系人：<input type="text" id="corlin" value=""/>
+				<button id="modifyshow" onclick="editCoreLinkMan()" class="title" title="修改联系人之后提交">提交</button>
+			</div>
+		</div>
+		<div id="contract_con">
+		</div>
+		<div style="width: 100%; height: 50px;"></div>
+	</div>
+	<!--loading-->
+	<div id="loadingMask">
+		<div class="Loading">
+			<img src="img/loading.gif" alt="">
+			<h2>正在加载中...</h2>
+		</div>
+	</div>
+	<!-- web外呼modal  start-->
+	<div class="modal fade bs-example-modal-lg" id="myModal" aria-labelledby="myLargeModalLabel" style="width:800px;left:37%;">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" id="myModalClose" style="font-size: 28px;">&times;</span>
+            </button>        
+				<div class="modal-header" style="width: 80%; margin-left: 10%;border: none;">
+					<h4 class="modal-title" style="color:#31708F;text-align: center;">WEB外呼成员</h4>
+				</div>
+				<div class="modal-body" id="webModal">
+					<table class="table table-bordered table-hover">
+						<thead class="theadth">
+							<tr>
+								<th>用户号码</th>
+								<th>用户姓名</th>
+								<th>用户状态</th>
+								<th>产品类型</th>
+								<th>活跃度</th>
+								<th>主副卡</th>
+								<th>话语权</th>
+								<th>WEB外呼</th>
+								<th>手机外呼</th>
+							</tr>
+						</thead>
+						<tbody id="listTable">
+						<tbody>
+					</table>
+				</div>
+				<div class="modal-footer" id="callfooter" style="text-align: center;">
+						<input class="form-group-sm onfocus"  placeholder="请输入手机号码进行呼叫" id="outbound" type="text" style="height: 30px;    cursor: pointer;" value="">
+						<button type="button" class="btn btn-primary" id="webOutbound">WEB外呼</button>
+						<button type="button" class="btn btn-primary" id="phoneOutbound">手机外呼</button>
+				</div>
+			</div>
+		</div>
+	</div><!-- web外呼modal  end-->
+	
+	<!-- 手机外呼/ 拨打电话 modal  start-->
+	<div class="modal fade bs-example-modal-sm"  aria-labelledby="mySmallModalLabel" id="mycall">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:#31708F;text-align: center;" id="webmodald">手机外呼</h4>
+				</div>
+				<div class="modal-body" style="text-align: center;" id="webContent"></div>
+			</div>
+			<div class="modal-footer" id="hangUp">
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="bye2">挂断</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal" style="display:none;" id="bye">挂断</button>
+			</div>
+		</div>
+	</div><!-- 手机外呼/ 拨打电话 modal  end -->
+	<video id="right_video"  controls="controls" style="display: none;"></video>
+    <script type="text/javascript" src="satic/jquery.min.js"></script>
+	<script  type="text/JavaScript" src="satic/json2.js"></script>
+	<script type="text/javascript" src="satic/jquery.cookie.js"></script>
+	
+	<!-- 模态框拖动效果 jquery-ui -->
+	<script type="text/javascript" src="satic/jqueryUI/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="satic/bootstarp/bootstrap.min.js"></script>
+	<script type="text/javascript" src="satic/easyui/jquery.easyui.min.js"></script>
+	<script type="text/JavaScript" src="satic/jquery.cxselect.js"></script>
+	<!-- 拨打电话插件 -->
+	<script type="text/javascript" src="satic/sip-0.7.3.min.js"></script>
+	<script type="text/javascript" src="js/inform.js"></script>
+    <script type="text/javascript" src="js/error.js"></script>
+	<script type="text/javascript" src="js/call.js"></script>
+	<script type="text/javascript">
+		/*
+		 * 模态框拖拽    jquery-ui
+		 * 必须等bootstrap模态框加载完成之后、才能进行拖拽
+		 */
+		$(document).on("show.bs.modal", "#myModal", function () {
+			$(this).draggable({
+				handle: ".modal-header", // 只能点击头部拖动
+				cursor: "crosshair"
+      });
+      
+			$(this).css("overflow", "hidden"); // 防止出现滚动条，出现的话，你会把滚动条一起拖着走的
+		});
+		
+		$(document).ready(function(){
+			$("#user tr:odd").css({ 'background': '#d9e2f3' });
+			$("#behavior tr:odd").css({ 'background': '#deeaf6' });
+      $("#Sale tr:odd").css({ 'background': '#e2efd9' });
+    	})
+			
+	</script>
+</body>
+</html>

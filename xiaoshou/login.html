@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>登录</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="satic/bootstarp/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/login.css"/>
+	<!--兼容ie下不能识别的标签-->
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="satic/html5shiv.min.js"></script>
+		<script type="text/javascript" src="satic/respond.min.js"></script>
+	<![endif]-->
+	<!--解决IE6下PNG图片透明问题-->
+	<!--[if IE 6]>
+		<script type="text/javascript" src="satic/DD_belatedPNG_0.0.8a-min.js"></script>
+		<script>DD_belatedPNG.fix('*');</script>
+	<![endif]-->
+</head>
+<body>
+	<div class="header">
+		<div class="login_ann">公告：</div>
+		<div id="announcement">
+			<ul id="con1">
+				<!--<li>本系统为客户经理工单执行管理系统</li>-->
+				<!--<li>本期优化了工单转派等功能  </li>-->
+			</ul>
+			<ul id="con2">
+				<!--<li>本系统为客户经理工单执行管理系统</li>-->
+				<!--<li>本期优化了工单转派等功能  </li>-->
+			</ul>
+		</div>
+	</div>
+	<div class="loginWraper">
+	  	<div id="loginform" class="loginBox">
+		  	<p class="login_deng">登录</p>
+				<div class="user">
+					<div>
+						<span class="mima-icon"><i class="username-icon"><img src="images/login/login_user.png" alt=""></i></span>
+						<input type="text" id="userid" class="users" name="userid" placeholder="输入账号"  value="" style="height: 25px;">
+						<label for="inputBox" id="userSpan">请输入号码</label>
+					</div>
+					<div>
+						<span class="mima-icon"><i class="password-icon"><img src="images/login/login_lock.png" alt=""></i></i></span>
+						<input type="password" id="pwd" class="users" name="pwdid" placeholder="请输入密码" value="" style="height: 25px;">
+						<label for="inputBox" id="pwdSpan">请输入密码</label>
+					</div>
+				</div><br>
+				<div class="forgetPpassword" data-toggle="modal" data-target="#myModal">忘记密码?</div>
+				<button id="btn_phone" type="submit" onclick="order('1')">手机登录</button>
+				<button id="btn_gong" type="submit" onclick="order('2')">工号登录</button>
+
+			
+			<!--精确营销管理平台登录地址跳转-->
+		  	<button type="but" onclick="javascrtpt:window.location.href='http://gz.mobicloud.com.cn/gzmp'" class="but_tiao">销售助手管理平台</button>
+		</div>
+	</div>
+	<div class="footer">
+		由于浏览器兼容性问题，为保证销售助手页面正常显示，建议使用火狐浏览器或Google浏览器打开。支持XP系统火狐浏览器(<a href="http://gzdx.me/files/Chrome_49.0.zip" style="color:red">点击下载</a>)
+	</div>
+	<!--忘记密码-->
+	<div class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="myLogin" style="padding-right: 17px;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:#31708F;text-align: center;">修改密码</h4>
+				</div>
+				<div class="modal-body" style="padding:20px 100px">
+					<form id="formMsg">
+						<div class="form-group" style="position: relative">
+							<label class="control-label">手机号:</label>
+							<input class="form-group-sm"  placeholder="请输入业务员手机号码" name="upwd" id="hqPhone" type="text">
+						</div>
+						<div class="form-group" style="position: relative">
+							<label class="control-label">验证码:</label>
+							<input class="form-group-sm" placeholder="请输入验证码" name="upwd" id="verification" type="text" style="width: 50%;">
+							<input class="input3" type="button" style="margin-right: 20px;" id="hqCode" value="获取" onclick="validateInfo(this)">
+						</div>
+						<div class="form-group" style="position: relative">
+							<label class="control-label">修改密码:</label>
+							<input class="form-group-sm" placeholder="请输入新密码" name="reupwd" id="changePwd" type="password">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" type="button" id="forgetPwdUpdatePwd">提交</button>
+					<button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="satic/jquery.min.js"></script>
+	<script type="text/javascript" src="satic/jquery.md5.js"></script>
+	<script type="text/javascript" src="satic/bootstarp/bootstrap.min.js"></script>
+	<!--ie兼容json-->
+	<script type="text/JavaScript" src="satic/json2.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>

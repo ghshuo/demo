@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="always" name="referrer">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<title>历史工单</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="satic/bootstarp/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="satic/jqueryUI/jquery-ui.min.css" />
+	<link rel="stylesheet" type="text/css" href="satic/jqueryUI/jquery-ui-timepicker-addon.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/datePicker.css" />
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link rel="stylesheet" type="text/css" href="css/historical.css" />
+	<link rel="stylesheet" type="text/css" href="css/publicSector.css" />
+	<!--兼容ie下不能识别的标签-->
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="satic/html5shiv.min.js"></script>
+		<script type="text/javascript" src="satic/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body style="overflow-x: auto;">
+	<div class="ctt list2">
+		<div class="in_jiansuo1">
+      <span class="retrievalSpan">任务名称</span>
+      <select name="selectAge" id="selectAgeee" class="retrievalSelect"></select>
+      <span class="retrievalSpan">客户号码</span>
+      <input type="text" name="" value="" id="phone1" class="retrievalInput" style="width: 13.8%;">
+      <span class="retrievalSpan">执行状态</span>
+      <select name="selectAge" id="selectAge2" class="retrievalSelect">
+        <option value="-1">请选择</option>
+        <option value="0">未执行</option>
+        <option value="1">执行成功</option>
+        <option value="2">执行失败</option>
+        <option value="3">延迟执行</option>
+      </select>
+      <span class="retrievalSpan">归属状态</span>
+      <select name="selectAge" id="selectAge3" class="retrievalSelect">
+        <option value="-1">请选择</option>
+        <option value="0">自有</option>
+        <option value="1">转出</option>
+        <option value="2">转入</option>
+      </select>
+      <span class="retrievalSpan">下发时间</span>
+      <input class="retrievalInput timeInput" id="startDate" placeholder="点击选择起始时间">
+      <span class="retrievalSpan" style="background: none;color: #222;">至</span>
+      <input class="retrievalInput timeInput" id="downTime" placeholder="点击选择结束时间">
+          
+      <span class="retrievalSpan">截止时间</span>
+      <input class="retrievalInput timeInput" id="endDate" placeholder="点击选择起始时间">
+      <span class="retrievalSpan" style="background: none;color: #222;">至</span>
+      <input class="retrievalInput timeInput" id="Deadline" placeholder="点击选择结束时间">
+      <span class="retrievalSpan">执行时间</span>
+      <input class="retrievalInput timeInput" id="statusDateStart" placeholder="点击选择起始时间">
+      <span class="retrievalSpan" style="background: none;color: #222;">至</span>
+      <input class="retrievalInput timeInput" id="statusDateEnd" placeholder="点击选择结束时间">
+       <button type="button" class="btn btn-primary" onclick="lishil()" style="margin-right: 4%; float: right;">检索</button>
+			
+			<!-- <div class="retrieval">
+				
+			</div> -->
+		</div>
+		<ul class="historyWork" style="  margin: 0px;"></ul>
+		<div class="yanse">
+			&ensp;&ensp;通过“归属状态” 列字体颜色区分归属状态：（自有--
+			<span style="color: #63ce93;">绿色</span>，转出--
+			<span style="color: #ccc;">灰色</span>，转入--
+			<span style="color: #2f8acb;">蓝色</span>）
+			<br /> &ensp;&ensp;通过“客户号码” 列字体颜色区分用户状态：（正常--
+			<span style="color: #63ce93;">绿色</span>，单停--
+			<span style="color: #ffff71;">黄色</span>，双停--
+			<span style="color: #ffcf3e;">橙色</span>，拆机--
+			<span style="color: #ff5959;">红色</span>）
+			<br /> &ensp;&ensp;通过“客户名称” 列字体颜色区分账户余额：（小于5元--
+			<span style="color: #ff5959;">红色</span>，小于10元--
+			<span style="color: #2f8acb;">蓝色</span>，其他正常工单--
+			<span>黑色</span>）
+			<br /> &ensp;&ensp;通过“竣工状态” 列字体颜色区分评估结果：（优秀--
+			<span style="color: #2f8acb;">蓝色</span>，一般--
+			<span>黑色</span>，较差--
+			<span style="color: #ff5959;">红色</span>，未评估--
+			<span style="color: #ccc;">灰色</span>）
+			<br />
+		</div>
+		<!--动态 获取数据分页-->
+		<div class="pag">
+			<div style="margin-top: 6px;">
+				<button id="shou" onclick="shouye()">首页</button>
+				<button id="shang" onclick="shang()">上一页</button>
+				<button id="xia" onclick="xia()">下一页</button>
+				<button id="weiye" onclick="weiye()">尾页</button>
+				<input type="text" name="yame" id="yema" value="" />
+				<button class="butto" onclick="tiao()">跳转</button>
+				<div class="pagez">共
+					<span class="pagezz">/</span>页</div>
+			</div>
+		</div>
+	</div>
+	<div id="loadingMask">
+		<div class="Loading">
+			<img src="img/loading.gif" alt="">
+			<h2 style="font-size: 13px;">正在加载中...</h2>
+		</div>
+	</div>
+	<script type="text/javascript" src="satic/jquery.min.js"></script>
+	<!--ie兼容json-->
+	<script type="text/JavaScript" src="satic/json2.js"></script>
+	<script type="text/javascript" src="satic/jquery.cookie.js"></script>
+	<script type="text/javascript" src="satic/nicescroll/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="satic/jquery.date_input.pack.js"></script>
+	<!--时间控件 -->
+	<script type="text/javascript" src="satic/jqueryUI/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="satic/jqueryUI/jquery-ui-timepicker-addon.min.js"></script>
+	<script type="text/javascript" src="satic/jqueryUI/JqueryDataPicker4CN.js"></script>
+	<script type="text/javascript" src="satic/jqueryUI/dataTimer.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var nice = $("body").niceScroll();  // The document page (body)
+			$("#ascrail2000 div").css("backgroundColor", "#89a3ad");
+			$("#ascrail2000 div").css("border", "none");
+			$("body").niceScroll({ cursorborder: "", cursorcolor: "#89a3ad", boxzoom: true }); // First scrollable DIV
+
+		});
+	</script>
+	<script type="text/javascript" src="js/historical.js"></script>
+</body>
+
+</html>

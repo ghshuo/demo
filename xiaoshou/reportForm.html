@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="always" name="referrer">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>报表下载</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="satic/bootstarp/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/publicSector.css">
+    <!--兼容ie下不能识别的标签-->
+    <!--[if lt IE 9]>
+		<script type="text/javascript" src="satic/html5shiv.min.js"></script>
+		<script type="text/javascript" src="satic/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+    <table class="table table-bordered table-hover">
+        <div class="search-form">
+            <input type="text" id="reportRetrieval" placeholder="请输入关键词" value="">
+            <button type="button" class="btn btn-primary" style="margin-top: -7px;" onclick="reportRetrieval();">检索</button>
+            <span style="color: red;">此报表每天下午3点左右更新，请用户根据需求下载报表，报表后缀日期则是截止目前的完成情况。</span>
+        </div>
+        <thead class="theadth">
+            <tr style="width:100%;background: #def0fc;">
+                <th style="width:50%;text-align: center;">报表名称</th>
+                <th style="width:50%;text-align: center;">下载</th>
+            </tr>
+        </thead>
+        <tbody id="reportForm" >
+        </tbody>
+    </table>
+    <div id="barcon" name="barcon"></div>
+    <script type="text/javascript" src="satic/jquery.min.js"></script>
+    <!--ie兼容json-->
+    <script type="text/JavaScript" src="satic/json2.js"></script>
+    <script type="text/javascript" src="satic/bootstarp/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/reportForm.js">
+        
+    </script>
+</body>
+
+</html>

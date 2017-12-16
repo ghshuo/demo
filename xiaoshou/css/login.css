@@ -1,0 +1,148 @@
+/*\u5fae\u8f6f\u96c5\u9ed1  微软雅黑字体编码*/
+@charset "utf-8";
+html, body{ height:100%}
+body{font-size:14px}
+.header,.footer{ position:absolute; left:0; right:0; width:100%; z-index:99}
+.header{top:0; height:60px; background:#426374 url(../images/login/logo.png) no-repeat 0 center}
+.loginWraper{ position:absolute;width:100%; left:0; top:0; bottom:0; right:0; z-index:1; background:#3283AC url(../images/login/admin-login-bg.jpg) no-repeat center}
+.loginBox{position:absolute;width: 510px;height:279px;background:url(../images/login/admin-loginform-bg.png) no-repeat;left:50%;top:50%;margin-left: -248px;margin-top:-184px;padding-top:38px;}
+.login_deng{
+	width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 32px;
+}
+.user{padding: 0 0 0 109px;}
+.users{
+	margin: 0 0 21px -1px;
+	padding-left: 7px;
+	width: 264px;
+	border: 1px solid #dedede;
+	color: #999;
+	font-size: 14px;
+	font-family: "\u5fae\u8f6f\u96c5\u9ed1";
+    /*行高兼容*/
+	line-height: 25px\9; /*IE8*/
+    *line-height: 25px; /* IE7支持 */
+	_line-height: 25px; /* IE6支持 */
+	-ms-line-height: 25px;/*IE9+支持*/
+	-webkit-line-height: 1; /*chrome safair*/
+	-moz-line-height: 25px;/*火狐*/
+}
+.mima-icon i{
+	font-size: 26px;
+    width: 36px;
+    height: 35px;
+    float: left;
+    background-color: #ccc;
+    text-align: center;
+    line-height: 35px;
+    line-height: 35px\9; /*IE8*/
+    *line-height: 35px; /* IE7支持 */
+    _line-height: 35px; /* IE6支持 */
+    -ms-line-height: 35px;/*IE9+支持*/
+    -webkit-line-height: 1; /*chrome safair*/
+    -moz-line-height: 35px;/*火狐*/
+}
+#btn_phone{margin: 0px 0 0 97px;}
+#btn_phone,#btn_gong{
+    width: 129px;
+    height: 44px;
+    background: #2e558e;
+    color: #fff;
+    font-size: 15px;
+    font-family: "\u5fae\u8f6f\u96c5\u9ed1";
+}
+#btn_gong{margin: 0 0 0 63px;}
+.but_tiao{
+    width: 129px;
+    height: 30px;
+     /*行高兼容*/
+     line-height: 30px;
+	line-height: 30px\9; /*IE8*/
+    *line-height: 30px; /* IE7支持 */
+	_line-height: 30px; /* IE6支持 */
+	-ms-line-height: 30px;/*IE9+支持*/
+	-webkit-line-height: 1; /*chrome safair*/
+	-moz-line-height: 30px;/*火狐*/
+    font-size:13px; 
+    color: #FFF;
+    border: solid 1px #1c6a9e;
+    background: #2288cc;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bbee', endColorstr='#2288cc');
+    background: linear-gradient(top, #33bbee, #2288cc);
+    background: -moz-linear-gradient(top, #33bbee, #2288cc);
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#33bbee), to(#2288cc));
+    text-shadow: -1px -1px 1px #1c6a9e;
+    position: absolute;
+    right: 12px;
+    bottom: 10px;
+}
+.footer{ height:46px; line-height:46px; bottom:0; text-align:center; color:#fff; font-size:12px; background-color:#426374}
+#userSpan{
+    color:#999;
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    font-size: 14px;
+    height: 33px;
+    font-family: "\u5fae\u8f6f\u96c5\u9ed1";
+    display: none;
+}
+#pwdSpan{
+    color: #999;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    font-size: 14px;
+    height: 33px;
+    font-family: "\u5fae\u8f6f\u96c5\u9ed1";
+    display: none;
+}
+.forgetPpassword{
+    font-size: 13px;
+    color: #FFF;
+    position: absolute;
+    left: 28px;
+    bottom: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+}
+#hqCode{
+    width: 31%;
+    /* float: left; */
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    padding: 4px 17px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #ffff;
+    border: none;
+    background: #7295e6;
+    /* vertical-align: middle; */
+    /* -webkit-border-radius: 4px; */
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+/* 公告信息 */
+.login_ann{
+    position: absolute;
+    left: 59%;
+    color: red;
+    top: 34%;
+    width: 90px;
+    height: 20px;
+}
+#announcement{
+    width: 195px;
+    position: absolute;
+    left: 65%;
+    font-size: 13px;
+    top: 36%;
+    color: #ffffffbd;
+    height: 16px;
+    overflow: hidden;
+}

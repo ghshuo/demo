@@ -1,0 +1,62 @@
+/*historyWork*/
+.historyWork{
+	width: 100%;
+    min-height: 330px;
+    cursor: pointer;
+}
+.historyWork span{
+	    width: 100%;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+}
+#history{
+	font-weight: bold;
+	font-size: 15px;
+	background-color: #def0fc;
+	border: none;
+	width: 100%;
+	float: left;
+}
+#history div{
+	    width: 7.4%;
+    float: left;
+    text-align: center;
+}
+.historyWork div{
+	width: 7.4%;
+    float: left;
+    text-align: center;
+}
+.shensdas{
+	width: 100%;
+	float: left;
+}
+/*每行的hover属性*/
+.shensdas:hover{color:#1b36f5;}
+
+/*loading*/
+#loadingMask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.Loading{
+	position: fixed;
+    top: 38%;
+    left: 35%;
+    height: 114px;
+    width: 300px;
+    background-color: rgba(80, 70, 70, 0.28);
+    text-align: center;
+}
+.Loading img{
+	width: 20%;
+}
+
+
+

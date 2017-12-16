@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="always" name="referrer">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+    <title>销售助手管理平台</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/pintuer.css">
+	<link rel="stylesheet" type="text/css" href="satic/bootstarp/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+   	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<!--兼容ie下不能识别的标签-->
+	<!--兼容ie下不能识别的标签-->
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="satic/html5shiv.min.js"></script>
+		<script type="text/javascript" src="satic/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body style="background-color:#aca094;">
+	<div>
+		<div class="header bg-main">
+			<div class="logo margin-big-left fadein-top">
+			    <h1>销售助手WEB版</h1>
+			</div>
+			<div class="head-l">
+			  	<div style="float: left;color: white;margin-top: 5px;"><span class="icon-user" style="font-size: 20px;"></span>&nbsp;&nbsp;<span id="logdown"></span></div>
+			  		&nbsp;&nbsp;
+				<a class="button button-little bg-red" style="background-color: #4c6fb9; border-color:#4c6fb9" data-toggle="modal" data-target="#update-pass" href="javascript;;">
+					<span class="glyphicon glyphicon-upload" aria-hidden="true"></span> 修改密码</a>
+			  	<a class="button button-little bg-red" href="login.html">
+			  		<span class="icon-power-off"></span> 退出</a>
+			</div>
+		</div>
+		<!--左侧导航栏-->
+		<div class="leftnav">
+		  	<div id="firstpane" class="menu_list">
+			    <div class="menu_head current">当前工单</div>
+			    <div style="display:block" class=menu_body >
+				   <div class="lfloat" style="width:126px">
+				   		<!--左侧当前工单列表tab-->
+						 <ul id="nav"></ul>
+					</div>
+					
+			    </div>
+			    <div class="menu_head" onclick="lishi()">历史工单</div>
+			    <div style="display:none" class=menu_body >
+			    </div>
+			    <div class="menu_head" onclick="tongji()">统计数据</div>
+			    <div style="display:none" class=menu_body >
+                </div>
+                <div class="menu_head" onclick="reportForm()">报表下载</div>
+                <div style="display:none" class=menu_body>
+                </div>
+			</div>
+		</div>
+		<div class="admin">
+		  	<iframe  rameborder="0" name="right" width="100%" class="iframepage" height="100%" scrolling="yes"  src="" id="iframe"></iframe>
+		</div>
+	</div>
+
+	<div id="loginMask"></div>
+	<div>
+		 <!--转派工单-->
+        <div id="dispatch">
+        	<div class="box_login">
+	        	<h3 class="box_login1">转派工单</h3>
+				<button class="guanbi"></button>
+        	</div>
+        	<div class="indexSelect">
+        		<span>排序条件</span> 
+			   	<select name="selectAge" id="indSelect"> 
+			   		<option value="1">请选择</option>
+			        <option value="1">套餐名称</option>   
+			        <option value="2">合约名称</option>   
+			        <option value="3">到期时间</option>                 
+				</select>
+				<span>执行状态</span> 
+				<select name="selectAge" id="indSel"> 
+					<option value="0">未执行</option>
+				 	<option value="1">执行成功</option>   
+				 	<option value="2">执行失败</option>   
+				 	<option value="3">延迟执行</option>                 
+			 </select>
+				<button onclick="turnRetrieve()">检索</button>
+				<p class="zhuanpip">系统默认选择执行状态为“未执行”的工单，如需转派其他执行状态的工单，请选择！</p>
+        	</div>
+        	<ul class="dispatch_lei">
+        		<li>姓名</li>
+        		<li>手机号</li>
+        		<li>套餐名称</li>
+        		<li>合约名称</li>
+        		<li>到期时间</li>
+        		<li>全选<input type="checkbox" id="SelectAll"  value="全选" onclick="selectAll();"/></li>
+        	</ul>
+        	<!--转派工单列表-->
+        	<div class="dispatch_biao">
+        		<!--<ul class="dispatch_bia">
+	        		<li>姓名</li>
+	        		<li>手机号</li>
+	        		<li>全选</li>
+	        	</ul>-->
+        	</div>
+    		<div class="yijian">
+    			<button class="xiayibu">下一步</button>
+    		</div>
+        </div>
+        <div id="box">
+        	<div class="box_login">
+	        	<h3 class="box_login1">转派工单接收人</h3>
+				<!--<span class="guanbi">╳</span>-->
+				<button class="guanbi"></button>
+        	</div> 
+        	<!--搜索查询-->
+        	<div id="sousuochaxun" style="margin-left: 17px;width: 264px;height: 34px;float: left; border-radius: 10px; border: 1px solid #ccc;margin-top: 20px;margin-bottom: 15px;">
+				<i class="sousuot"></i>
+				<input type="text" name="sousuokuang" class="sousuo" placeholder="查找转派工单接收人" id="jsrcha">
+    		</div>
+				<button class="jinglicha" onclick="sjr()">查询</button>
+    		<div class="mingdan">
+    		</div>
+    		<div class="yijian">
+    			<button class="shangyibu">上一步</button>
+    			<button class="sousuozhuan">一键转派</button>
+    		</div>
+       </div>
+       <!--撤销弹窗-->
+       <div id="tan">
+       	 	<div class="cxanniu">该工单已经转派了，不能执行，需要撤回转派才能执行，请确认是否撤回工单</div>
+       	 	<button class="butt">不撤回</button>
+       	 	<button class="butt1" onclick="cxzp()">撤回</button>
+       </div>
+       <!--确认弹窗-->
+       <div id="tanchuang">
+       	 	<div class="mess"></div>
+       	 	<button class="queding" onclick="qdla()">确定</button>
+       </div>
+       <div id="tanchuang1">
+       	 	<div class="mess1"></div>
+       	 	<button class="queding1">确定</button>
+       </div>
+	</div>
+	<!--修改密码 start-->
+	<div class="modal fade" id="update-pass" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="display: none; padding-right: 17px;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" style="color:#31708F;text-align: center;">修改密码</h4>
+				</div>
+				<div class="modal-body" style="padding:20px 100px">
+					<form id="formMsg">
+						<div class="form-group">
+							<label class="control-label">原始密码:</label>
+							<input class="form-group-sm" autofocus="" placeholder="请输入旧密码" name="upwd" id="oldPassword" type="password" style="height: 30px;">
+						</div>
+						<div class="form-group" style="position: relative">
+							<label class="control-label">修改密码:</label>
+							<input class="form-group-sm" placeholder="请输入新密码" name="upwd" id="newpassword" type="password" style="height: 30px;">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-success" type="button" id="goSubmit">提交</button>
+					<button data-dismiss="modal" class="btn btn-default" type="button">关闭</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--修改密码 end-->
+    <script type="text/javascript" src="satic/jquery.min.js"></script>
+	<!--ie兼容json-->
+	<script type="text/JavaScript" src="satic/json2.js"></script>
+    <script type="text/javascript" src="satic/nicescroll/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="satic/jquery.cookie.js"></script>
+	<script type="text/javascript" src="satic/bootstarp/bootstrap.min.js"></script>
+	<script type="text/javascript" src="satic/jquery.md5.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    
+      <script type="text/javascript">
+		  	$(document).ready(function() {
+				var nice = $(".admin").niceScroll();  // The document page (body)
+				$("#ascrail2000 div").css("backgroundColor","#89a3ad");
+				$("#ascrail2000 div").css("border","none");
+			    $(".admin").niceScroll({cursorborder:"",cursorcolor:"#89a3ad",boxzoom:true}); // First scrollable DIV
+		    
+		  	});
+		  		$(document).ready(function() {
+				var nav = $("#nav").niceScroll();  // The document page (body)
+				$("#ascrail2001 div").css("backgroundColor","#89a3ad");
+				$("#ascrail2000 div").css("border","none");
+			    $("#nav").niceScroll({cursorborder:"",cursorcolor:"red",boxzoom:true}); // First scrollable DIV
+		    
+		  	});
+
+		</script>
+
+</body>
+</html>
