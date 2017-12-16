@@ -1,13 +1,13 @@
-# Swiper ÒÆ¶¯¶ËtabÇĞ»»+»¬¶¯×ÔÊÊÓ¦
+# Swiper ç§»åŠ¨ç«¯tabåˆ‡æ¢+æ»‘åŠ¨è‡ªé€‚åº”
 
-ÄÚÈİÎÒ¸øÁËÒ»¸ö¸ß¶È£¬·½±ã²é¿´Ğ§¹û£¬ Ó¦ÓÃµ½Êµ¼ÊÏîÄ¿ÖĞ²»ÓÃÉèÖÃ¸ß¶È ÄÚÈİ×Ô¶¯³Å¿ª
+å†…å®¹æˆ‘ç»™äº†ä¸€ä¸ªé«˜åº¦ï¼Œæ–¹ä¾¿æŸ¥çœ‹æ•ˆæœï¼Œ åº”ç”¨åˆ°å®é™…é¡¹ç›®ä¸­ä¸ç”¨è®¾ç½®é«˜åº¦ å†…å®¹è‡ªåŠ¨æ’‘å¼€
 
     <header class="favor-header-bar">
         <ul class="tabs">
-            <li class="default"><a href="javascript:void(0);" id="btn1" hidefocus="true">µÚÒ»Ò³</a><span><img src="images/hot.png"></span></li>
-            <li><a href="javascript:void(0);" id="btn2" hidefocus="true">µÚ¶şÒ³</a></li>
-            <li><a href="javascript:void(0);" id="btn3" hidefocus="true">µÚÈıÒ³</a></li>
-            <li><a href="javascript:void(0);" id="btn4" hidefocus="true">µÚËÄÒ³</a></li>
+            <li class="default"><a href="javascript:void(0);" id="btn1" hidefocus="true">ç¬¬ä¸€é¡µ</a><span><img src="images/hot.png"></span></li>
+            <li><a href="javascript:void(0);" id="btn2" hidefocus="true">ç¬¬äºŒé¡µ</a></li>
+            <li><a href="javascript:void(0);" id="btn3" hidefocus="true">ç¬¬ä¸‰é¡µ</a></li>
+            <li><a href="javascript:void(0);" id="btn4" hidefocus="true">ç¬¬å››é¡µ</a></li>
         </ul>
     </header>
 
@@ -15,7 +15,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide">
                <div class="divHgight" style="background:red; height: 1000px">
-                  <!-- Ìí¼ÓÄÚÈİ -->
+                  <!-- æ·»åŠ å†…å®¹ -->
                </div>
             </div>
             <div class="swiper-slide margin19">
@@ -33,17 +33,19 @@
         </div>
    </div>
 
-  // ½øÈ¥Ò³Ãæ¾ÍÅĞ¶ÏµÚÒ»¸öÒ³ÃæÄÚÈİµÄ¸ß¶È  Ìí¼Ó¸øswiper-container
+
+
+	 // è¿›å»é¡µé¢å°±åˆ¤æ–­ç¬¬ä¸€ä¸ªé¡µé¢å†…å®¹çš„é«˜åº¦  æ·»åŠ ç»™swiper-container
         var divHgight=$(".divHgight").eq(0).height();
         $(".swiper-container").height(divHgight);
         var mySwiper = new Swiper('.swiper-container', {
             autoHeight: true,
             onSlideChangeStart: function () {
-              // »ñÈ¡½øÈ¥ÄÇ¸öÒ³Ãæ É¾³ıºÍÌí¼ÓÑùÊ½
+              // è·å–è¿›å»é‚£ä¸ªé¡µé¢ åˆ é™¤å’Œæ·»åŠ æ ·å¼
               $(".tabs .default").removeClass('default');
               $(".tabs li").eq(mySwiper.activeIndex).addClass('default');
-              console.log('µÚ' + ((mySwiper.activeIndex) + 1) + 'Ò³');
-              // ¶ÔÓ¦Ò³Ãæ¸ß¶È×ÔÊÊÓ¦  
+              console.log('ç¬¬' + ((mySwiper.activeIndex) + 1) + 'é¡µ');
+              // å¯¹åº”é¡µé¢é«˜åº¦è‡ªé€‚åº”  
               var activeHight = $(".divHgight").eq(mySwiper.activeIndex).height();
               $(".swiper-slide").eq(mySwiper.activeIndex).height(activeHight);
               console.log(activeHight);
@@ -51,9 +53,8 @@
               
             }
         });
-
-
-
+	
+	
 	 $(".swiper-slide-active").css("height", "auto");
         $(".tabs li").on('click', function (e) {
           e.preventDefault();
