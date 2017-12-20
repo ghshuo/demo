@@ -4,9 +4,9 @@
 
 # Site
 title: 前端 莫小耿
-subtitle: 莫小耿
+subtitle: 积少成多
 description: 求知若饥 虚心若愚
-author: Geng Hong Shuo
+author: 莫小耿
 language: zh-Hans
 timezone: BeiJing
 
@@ -81,3 +81,14 @@ deploy:
   repo: https://github.com/ghshuo/ghshuo.github.io.git
   branch: master
 
+# 百度统计
+# baidu Analytics ID
+baidu_analytics: b5c14c075f2ec225dcc8628280f1b100
+
+# 搜索
+algolia:
+  applicationID: OPOLUV99G1
+  aPIKey: 3839f2e310c0a7e06cbc77262fc35c69
+  adminAPiKey: 8969bcc38287e7e80785f09230ce9833
+  monitoringApiKey: 968a4cf8c954a451710ee810539c805d
+  chunkSize: 5000
