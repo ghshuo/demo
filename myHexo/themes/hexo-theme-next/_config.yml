@@ -59,13 +59,13 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: /
-  code: /code/ || code #代码
+  categories: /categories/ || th
   tags: /tags/ || tags  #标签
-  heart: /heart || heart #生活
+  # heart: /heart || heart #生活
   archives: /archives/ || archive #归档归档
-  #about: /about/ || user
+  about: /about/ || user
   
-  #categories: /categories/ || th
+  
   
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
