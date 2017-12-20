@@ -19,7 +19,7 @@ keywords: "Hexo, NexT"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: /atom.xml
 
 # Specify the date when the site was setup
 #since: 2015
@@ -58,11 +58,11 @@ index_with_subtitle: false
 # Value before `||` delimeter is the target link.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
-  home: / || home
-  code: /code/ || code
-  tags: /tags/ || tags
-  heart: /heart || heart
-  archives: /archives/ || archive
+  home: /
+  code: /code/ || code #代码
+  tags: /tags/ || tags  #标签
+  heart: /heart || heart #生活
+  archives: /archives/ || archive #归档归档
   #about: /about/ || user
   
   #categories: /categories/ || th
@@ -72,15 +72,22 @@ menu:
   #commonweal: /404/ || heartbeat
 
 # Enable/Disable menu icons.
-menu_icons:
+menu_icons: #icon图标
   enable: true
+  # Icon Mapping.
+  home: home
+  about: user
+  categories: th
+  tags: tags
+  archives: archive
+  commonweal: heartbeat
 
 
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
-# Schemes
+# Schemes #next的三个scheme
 #scheme: Muse
 #scheme: Mist
 scheme: Pisces
@@ -91,7 +98,7 @@ scheme: Pisces
 # Sidebar Settings
 # ---------------------------------------------------------------
 
-# Social Links.
+# Social Links.  #社交链接
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
@@ -104,7 +111,7 @@ social:
 
   
 
-social_icons:
+social_icons: #社交的图标
   enable: true
 
 # Blog rolls
@@ -117,19 +124,19 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /images/avatar.png
-# Table Of Contents in the Sidebar
+avatar: /images/avatar.png #头像
+# Table Of Contents in the Sidebar #文章自动显示目录
 toc:
   enable: true
 
-  # Automatically add list number to toc.
+  # Automatically add list number to toc.  #目录是否自动显示数字序号
   number: true
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
 
 # Creative Commons 4.0 International License.
-# http://creativecommons.org/
+# http://creativecommons.org/ #自由协议
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
 #creative_commons: by-nc-sa
 #creative_commons:

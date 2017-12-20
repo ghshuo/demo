@@ -70,6 +70,7 @@ per_page: 10
 pagination_dir: page
 
 # Extensions
+plugins: hexo-generate-feed
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-next
