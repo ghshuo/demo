@@ -5523,9 +5523,10 @@
 			if (Util.Browser.android && !Util.Browser.firefox){
 				console.log(Util.Browser.android && !Util.Browser.firefox)
 				console.log(window.navigator.userAgent.match(/Android (\d+.\d+)/))
-				if (window.navigator.userAgent.match(/Android (\d+.\d+)/).toString().replace(/^.*\,/, '') >= 2.1){
-					this.isBackEventSupported = true;
-				}
+				// if (window.navigator.userAgent.match(/Android (\d+.\d+)/).toString().replace(/^.*\,/, '') >= 2.1){
+					
+				// }
+				this.isBackEventSupported = true;
 			}
 			
 			if (!this.isBackEventSupported){
