@@ -5521,11 +5521,9 @@
 			this.originalImages = images;
 			
 			if (Util.Browser.android && !Util.Browser.firefox){
-				console.log(Util.Browser.android && !Util.Browser.firefox)
 				var rag = window.navigator.userAgent.match(/android [\d._]+/gi);
 				var str = (rag + "").replace(/[^0-9|_.]/ig, "").replace(/_/ig, ".");
 				str = parseInt(str.split('.')[0]);
-				console.log(str)
 				if (str >= 2.1){
 					this.isBackEventSupported = true;
 				}
