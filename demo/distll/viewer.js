@@ -1139,8 +1139,8 @@
           width = viewerHeight * aspectRatio;
         }
 
-        width = Math.min(width, naturalWidth);
-        height = Math.min(height, naturalHeight);
+        width = Math.min(width * 0.9, naturalWidth);
+        height = Math.min(height * 0.9, naturalHeight);
         var imageData = {
           naturalWidth: naturalWidth,
           naturalHeight: naturalHeight,
@@ -1148,7 +1148,7 @@
           ratio: width / naturalWidth,
           width: width,
           height: height,
-          left: 0,
+          left: (viewerWidth - width) / 2,
           top: (viewerHeight - height) / 2
         };
         var initialImageData = assign({}, imageData);
