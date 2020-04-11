@@ -2039,7 +2039,7 @@
 		 * Function: onTouchStart
 		 */
 		onTouchStart: function(e){
-			
+			console.log(e);
 			if (this.captureSettings.preventDefaultTouchEvents){
 				e.preventDefault();
 			}
@@ -2069,7 +2069,7 @@
 				currentTargetEl: e.currentTarget
 			});
 			
-			
+			console.log(Util.Events.fir)
 		},
 		
 		

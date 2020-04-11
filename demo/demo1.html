@@ -3,12 +3,8 @@
 <head>
     <title>PhotoSwipe</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<!-- <meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" /> -->
-	<!-- <meta content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=2.0;" name="viewport" /> -->
-	<!-- <meta name="apple-mobile-web-app-capable" content="yes" /> -->
-	<link href="styles.css" type="text/css" rel="stylesheet" />
-	
-    <link href="photoswipe.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="./dist/photoswipe.css">
+	<link rel="stylesheet" href="./dist/default-skin/default-skin.css">
     <style>
         #Gallery{
 	width: 100%;
@@ -55,32 +51,8 @@
 	height: 100%;
 	object-fit: cover;
 }
-    </style>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	</style>
 	
-	<script type="text/javascript" src="lib/klass.min.js"></script>
-	<script type="text/javascript" src="code.photoswipe-3.0.5.js"></script>
-<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>
-	
-	
-	<script type="text/javascript">
-var vConsole = new VConsole();
-		(function(window, PhotoSwipe){
-		
-			document.addEventListener('DOMContentLoaded', function(){
-			
-				var options = {enableMouseWheel: false , enableKeyboard: false,allowUserZoom:true ,allowUserZoom:true},
-					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
-					console.log(options)
-			}, false);
-// 			Code.PhotoSwipe.Current.addEventListener(Code.PhotoSwipe.EventTypes.onDisplayImage, function(e){
-//   console.log('onDisplayImage');
-// });
-			
-		}(window, window.Code.PhotoSwipe));
-
-	</script>
-	<script src="https://hm.baidu.com/hm.js?15a99cb1c1eea969bcc1da33d0d8763b"></script>
 </head>
 <body>
 
@@ -95,7 +67,7 @@ var vConsole = new VConsole();
 	</div>
 	<div id="Gallery">
 		
-		<a href="https://img.andexpo.com/expoimg/eaa9f7d197aa7f964a1165720d87760c.jpg!watermark"  data-med="https://img.andexpo.com/expoimg/eaa9f7d197aa7f964a1165720d87760c.jpg!watermark" data-med-size="519x300" data-author="" class="demo-gallery__img--main">
+		<a href="https://img.andexpo.com/expoimg/eaa9f7d197aa7f964a1165720d87760c.jpg!watermark" data-size="10000x640" data-med="https://img.andexpo.com/expoimg/eaa9f7d197aa7f964a1165720d87760c.jpg!watermark" data-med-size="519x300" data-author="" class="demo-gallery__img--main">
 			<img src="https://img.andexpo.com/expoimg/eaa9f7d197aa7f964a1165720d87760c.jpg!watermark" alt="广州（国际）演艺设备、智能声光产品技术展1">
 			<figure>广州（国际）演艺设备、智能声光产品技术展1</figure>
 	  </a>
@@ -433,19 +405,108 @@ var vConsole = new VConsole();
 	  </a>
 	</div>
 </div>	
-
-	
-<div id="Footer">
-	<p><small>&copy; 2011 Code Computerlove Ltd - new media agency / digital marketing agency</small></p>
-
-	<div id="SocialLinks">
-		<a href="http://blog.codecomputerlove.com/"><img src="images/blogicon.png" width="32" height="32" alt="Blog" /></a>
-		<a href="http://www.twitter.com/computerlovers"><img src="images/twittericon.png" width="32" height="32" alt="Twitter" /></a>
-		<a href="http://www.facebook.com/CodeComputerlove"><img src="images/facebookicon.png" width="32" height="32" alt="Facebook" /></a>
-		<a href="http://www.flickr.com/photos/codecomputerlove"><img src="images/flickricon.png" width="32" height="32" alt="Flickr" /></a>
-	</div>
-	
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="./dist/photoswipe.js"></script>
+	<script src="./dist/photoswipe-ui-default.js"></script>
+	<!-- <script type="text/javascript" src="lib/klass.min.js"></script> -->
+	<!-- <script type="text/javascript" src="code.photoswipe-3.0.5.js"></script> -->
+<script src="https://res.wx.qq.com/mmbizwap/zh_CN/htmledition/js/vconsole/3.0.0/vconsole.min.js"></script>
+	<script src="https://hm.baidu.com/hm.js?15a99cb1c1eea969bcc1da33d0d8763b"></script>
 
+<script>
+    
+var openPhotoSwipe = function () {
+var imgss = $("#Gallery img");/**此处是你定义图片的变量 */
+//  imgss.each(function () {
+// })
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    var items = imgss.map(function () {
+        return {
+            src: $(this).attr('src'),/**获取src */
+            w: $(this).width() * 5,/**获取width并设置max缩放倍数 */
+            h: $(this).height() * 5 /**获取height并设置min缩放倍数 */
+        }
+    })
+    // 以下是官方写法
+    // build items array
+    // var items = [
+    //     {
+    //         src: $(this).attr('src'),
+    //         w: $(this).width(),
+    //         h: $(this).height()
+    //     },
+    // ];
+    // define options (if needed)
+    var options = {
+        // 索引:当前点击
+        index: Index,
+        // history & focus options are disabled on CodePen        
+        history: false,
+        focus: false,
+        // 图片间的间距
+        spacing: 0.05,
+        //点击图片/黑边关闭
+        tapToClose: true,
+        showAnimationDuration: 0,
+        hideAnimationDuration: 0
+    };
+    var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+    gallery.init();
+};
+$('#Gallery a').click(function () {
+   
+    // 获取到当前点击的索引
+    // Index = $(this).index() - 1;
+    // console.log(Index)
+    openPhotoSwipe()
+})
+	
+</script>
 </body>
 </html>
