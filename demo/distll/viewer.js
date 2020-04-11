@@ -882,7 +882,6 @@
 
     newImage.onload = function () {
       callback(newImage.width, newImage.height);
-
       if (!IS_SAFARI) {
         body.removeChild(newImage);
       }
@@ -1009,7 +1008,7 @@
       var options = this.options,
           parent = this.parent;
       var viewerData;
-
+console.log(Math.max(parent.offsetWidth, options.minWidth))
       if (options.inline) {
         viewerData = {
           width: Math.max(parent.offsetWidth, options.minWidth),
@@ -1094,13 +1093,15 @@
     renderList: function renderList(index) {
       var i = index || this.index;
       var width = this.items[i].offsetWidth || 30;
+      console.log(width)
       var outerWidth = width + 1; // 1 pixel of `margin-left` width
+      console.log(outerWidth)
       // Place the active item in the center of the screen
-
+      console.log((this.viewerData.width ) / 2 - outerWidth * i)
       setStyle(this.list, assign({
         width: outerWidth * this.length
       }, getTransforms({
-        translateX: (this.viewerData.width - width) / 2 - outerWidth * i
+        translateX: (this.viewerData.width ) / 2 - outerWidth * i
       })));
     },
     resetList: function resetList() {
@@ -1119,6 +1120,7 @@
           viewerData = this.viewerData;
       var footerHeight = this.footer.offsetHeight;
       var viewerWidth = viewerData.width;
+    
       var viewerHeight = Math.max(viewerData.height - footerHeight, footerHeight);
       var oldImageData = this.imageData || {};
       var sizingImage;
@@ -1136,10 +1138,10 @@
         if (viewerHeight * aspectRatio > viewerWidth) {
           height = viewerWidth / aspectRatio;
         } else {
-          width = viewerHeight * aspectRatio;
+          // 横屏宽度
+          // width = viewerHeight * aspectRatio;
         }
-
-        width = Math.min(width * 0.9, naturalWidth);
+        width = Math.min(width, naturalWidth);
         height = Math.min(height * 0.9, naturalHeight);
         var imageData = {
           naturalWidth: naturalWidth,
@@ -1148,7 +1150,7 @@
           ratio: width / naturalWidth,
           width: width,
           height: height,
-          left: (viewerWidth - width) / 2,
+          left: 0,
           top: (viewerHeight - height) / 2
         };
         var initialImageData = assign({}, imageData);
