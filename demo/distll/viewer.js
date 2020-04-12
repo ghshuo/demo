@@ -882,6 +882,7 @@
 
     newImage.onload = function () {
       callback(newImage.width, newImage.height);
+
       if (!IS_SAFARI) {
         body.removeChild(newImage);
       }
@@ -1008,7 +1009,7 @@
       var options = this.options,
           parent = this.parent;
       var viewerData;
-console.log(Math.max(parent.offsetWidth, options.minWidth))
+
       if (options.inline) {
         viewerData = {
           width: Math.max(parent.offsetWidth, options.minWidth),
@@ -1093,15 +1094,13 @@ console.log(Math.max(parent.offsetWidth, options.minWidth))
     renderList: function renderList(index) {
       var i = index || this.index;
       var width = this.items[i].offsetWidth || 30;
-      console.log(width)
       var outerWidth = width + 1; // 1 pixel of `margin-left` width
-      console.log(outerWidth)
       // Place the active item in the center of the screen
-      console.log((this.viewerData.width ) / 2 - outerWidth * i)
+
       setStyle(this.list, assign({
         width: outerWidth * this.length
       }, getTransforms({
-        translateX: (this.viewerData.width ) / 2 - outerWidth * i
+        translateX: (this.viewerData.width - width) / 2 - outerWidth * i
       })));
     },
     resetList: function resetList() {
@@ -1120,7 +1119,6 @@ console.log(Math.max(parent.offsetWidth, options.minWidth))
           viewerData = this.viewerData;
       var footerHeight = this.footer.offsetHeight;
       var viewerWidth = viewerData.width;
-    
       var viewerHeight = Math.max(viewerData.height - footerHeight, footerHeight);
       var oldImageData = this.imageData || {};
       var sizingImage;
@@ -1138,10 +1136,10 @@ console.log(Math.max(parent.offsetWidth, options.minWidth))
         if (viewerHeight * aspectRatio > viewerWidth) {
           height = viewerWidth / aspectRatio;
         } else {
-          // 横屏宽度
-          // width = viewerHeight * aspectRatio;
+          width = viewerHeight * aspectRatio;
         }
-        width = Math.min(width, naturalWidth);
+
+        width = Math.min(width * 0.9, naturalWidth);
         height = Math.min(height * 0.9, naturalHeight);
         var imageData = {
           naturalWidth: naturalWidth,
@@ -1150,7 +1148,7 @@ console.log(Math.max(parent.offsetWidth, options.minWidth))
           ratio: width / naturalWidth,
           width: width,
           height: height,
-          left: 0,
+          left: (viewerWidth - width) / 2,
           top: (viewerHeight - height) / 2
         };
         var initialImageData = assign({}, imageData);
@@ -1918,7 +1916,9 @@ console.log(Math.max(parent.offsetWidth, options.minWidth))
       var onViewed = function onViewed() {
         var imageData = _this.imageData;
         var render = Array.isArray(options.title) ? options.title[1] : options.title;
-        title.innerHTML = escapeHTMLEntities(isFunction(render) ? render.call(_this, image, imageData) : "".concat(alt, " (").concat(imageData.naturalWidth, " \xD7 ").concat(imageData.naturalHeight, ")"));
+        // 去掉图片规格展示
+        title.innerHTML = escapeHTMLEntities(isFunction(render) ? render.call(_this, image, imageData) : "".concat(alt));
+        // title.innerHTML = escapeHTMLEntities(isFunction(render) ? render.call(_this, image, imageData) : "".concat(alt, " (").concat(imageData.naturalWidth, " \xD7 ").concat(imageData.naturalHeight, ")"));
       };
 
       var onLoad;
