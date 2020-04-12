@@ -2870,7 +2870,6 @@
 				width = Util.DOM.width(this.settings.target);
 				height = Util.DOM.height(this.settings.target);
 				top = '0px';
-				
 			}
 			
 			Util.DOM.setStyle(this.el, {
@@ -3150,11 +3149,12 @@
 				width: contentWidth,
 				height: height
 			});
-			
+			console.log(top)
+			console.log(width)
+			console.log(height)
 			
 			// Set the height and width of item elements
 			for (i=0, j=itemEls.length; i<j; i++){
-				
 				itemEl = itemEls[i];
 				Util.DOM.setStyle(itemEl, {
 					width: width,
@@ -3168,7 +3168,6 @@
 				}
 				
 			}
-			
 			this.setContentLeftPosition();
 			
 			
@@ -3982,7 +3981,6 @@
 				);
 			
 			}
-			
 			
 		}
 	
@@ -4934,7 +4932,6 @@
 			if (!Util.isNothing(transformValue)){
 				
 				transformExploded = transformValue.match( /translate\((.*?)\)/ );
-				
 				if (!Util.isNothing(transformExploded)){
 				
 					transformExploded = transformExploded[1].split(', ');
@@ -4944,6 +4941,7 @@
 				}
 			
 			}
+			console.log(transformValue)
 			
 		},
 		
@@ -5104,7 +5102,10 @@
 				translateX: translateX,
 				translateY: translateY
 			});
-			
+			console.log(rotationDegs);
+			console.log(translateX);
+			console.log(translateY);
+			console.log(transform);
 		}
 	
 	});

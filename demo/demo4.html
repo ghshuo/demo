@@ -8,60 +8,63 @@
     />
     <link rel="stylesheet" href="./distll/viewer.css" />
     <style>
-         * { margin: 0; padding: 0;}
- 
- /* #viewer { width: ; margin: 0 auto; font-size: 0;}
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* #viewer { width: ; margin: 0 auto; font-size: 0;}
  #viewer li { display: inline-block; width: 32%; margin-left: 1%; padding-top: 1%;}
  #viewer li img { width: 100%;}
 
  #viewer { width: 700px; margin: 0 auto; font-size: 0;}
  #viewer li { display: inline-block; width: 32%; margin-left: 1%; padding-top: 1%;}
  #viewer li img { width: 100%;} */
- #viewer{
-	width: 100%;
-	overflow: hidden;
-	padding: 1rem 0.4rem 0 0.4rem;
-	border-bottom: 1px solid #f0f0f0;
-}
-#viewer  ul{
-	float: left;
-	width: 45vw;
-	margin-left: 0.5rem;
-	height: 40vw;
-}
-#viewer li{
-	width: 45vw;
-	height: 30vw;
-    overflow: hidden;
-	display: inline-block;
-	object-fit: cover;
-}
-#Gallery  figure{
-	text-align: center;
-	line-height: 1.2rem;
-	color: #333;
-    font-size: 0.78rem;
-	display: block;
-	white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    word-break: break-all;
-}
- .list-img .div .a2{
-	text-align: center;
-	line-height: 1.2rem;
-	color: #333;
-    font-size: 0.78rem;
-    display: block;
-}
-.list-img .div:nth-child(2n){
-	float: right;
-}
-#viewer img{
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
+      #viewer {
+        width: 100%;
+        overflow: hidden;
+        padding: 1rem 0.4rem 0 0.4rem;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      #viewer ul {
+        float: left;
+        width: 45vw;
+        margin-left: 0.5rem;
+        height: 40vw;
+      }
+      #viewer li {
+        width: 45vw;
+        height: 30vw;
+        overflow: hidden;
+        display: inline-block;
+        object-fit: cover;
+      }
+      #Gallery figure {
+        text-align: center;
+        line-height: 1.2rem;
+        color: #333;
+        font-size: 0.78rem;
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-all;
+      }
+      .list-img .div .a2 {
+        text-align: center;
+        line-height: 1.2rem;
+        color: #333;
+        font-size: 0.78rem;
+        display: block;
+      }
+      .list-img .div:nth-child(2n) {
+        float: right;
+      }
+      #viewer img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     </style>
   </head>
   <body>
@@ -92,23 +95,23 @@
 
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <!-- <script src="./distll/viewer.js"></script> -->
-    <script src="./distll/viewer.js"></script>
+    <script src="./distll/viewer.min.js"></script>
     <script>
-//    $('#image').viewer({
-// url: 'data-original'
-// });
+      //    $('#image').viewer({
+      // url: 'data-original'
+      // });
 
-var viewer = new Viewer(document.getElementById('viewer'), {
-			url: 'data-original',
-            interval:3000,
-            fullscreen: false
-})
-    //   $(function() {
-    //       $('#viewer').viewer({
-    //           url: 'data-original',
-    //           fullscreen: false,
-    //       });
-    //   });
+      var viewer = new Viewer(document.getElementById("viewer"), {
+        url: "data-original",
+        interval: 3000,
+        fullscreen: true,
+      });
+      //   $(function() {
+      //       $('#viewer').viewer({
+      //           url: 'data-original',
+      //           fullscreen: false,
+      //       });
+      //   });
     </script>
   </body>
 </html>
