@@ -12,6 +12,9 @@
         margin: 0;
         padding: 0;
       }
+     .viewer-footer .viewer-toolbar li{
+        margin-left: 10px;
+      }
 
       /* #viewer { width: ; margin: 0 auto; font-size: 0;}
  #viewer li { display: inline-block; width: 32%; margin-left: 1%; padding-top: 1%;}
@@ -95,7 +98,7 @@
 
     <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
     <!-- <script src="./distll/viewer.js"></script> -->
-    <script src="./distll/viewer.min.js"></script>
+    <script src="./distll/viewer.js"></script>
     <script>
       //    $('#image').viewer({
       // url: 'data-original'
@@ -105,6 +108,26 @@
         url: "data-original",
         interval: 3000,
         fullscreen: true,
+        toolbar: {
+          zoomIn: 4,
+          zoomOut: 4,
+          oneToOne: true,
+          reset: false,
+          prev: false,
+          play: {
+            show: 4,
+            size: "large",
+          },
+          zoomIn:true,
+          zoomOut: true,
+          play:true,
+          next: false,
+          rotateLeft: false,
+          rotateRight: true,
+          flipHorizontal: true,
+          flipVertical:true
+          // flipHorizontal: 4,
+        },
       });
       //   $(function() {
       //       $('#viewer').viewer({
