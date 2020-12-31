@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 750px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.backdrop {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    object-fit: cover;
+}
+
+img.bg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    display: none;
+    object-fit: cover;
+}
+
+.text {
+    font-size: 48px;
+}
+
+.heart {
+    width: 80px;
+    height: 80px;
+    background-color: #cc2a5d;
+    margin: 14px 80px;
+    position: relative;
+    transform: rotate(45deg);
+    animation: heart 1s ease-in infinite;
+}
+
+.heart span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    margin-top: -10px;
+    margin-left: -10px;
+    text-align: center;
+    transform: rotate(-45deg);
+    z-index: 99;
+    color: white;
+    font-size: 26px;
+    position: relative;
+    -webkit-transform: rotate(-45deg);
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #cc2a5d;
+    border-radius: 50%;
+}
+
+.heart::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(-50%);
+}
+
+.heart::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+@keyframes heart {
+    0% {
+        transform: scale(0.8) rotate(45deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8) rotate(45deg);
+        opacity: 0.8;
+    }
+}
+
+.textCon .item {
+    position: absolute;
+    opacity: 0;
+    background-color: #cc2a5d;
+    transform: rotate(45deg);
+    animation: hearts 3s ease-in infinite;
+}
+
+.textCon .item::before, .textCon .item::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #cc2a5d;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+}
+
+.textCon .item::before {
+    transform: translateX(-50%);
+}
+
+.textCon .item::after {
+    transform: translateY(-50%);
+}
+
+@keyframes hearts {
+    0% {
+        opacity: 0;
+        transform: translateY(0%) rotate(45deg);
+    }
+    20% {
+        opacity: 0.8;
+        transform: translateY(-20%) rotate(45deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-1000%) rotate(45deg);
+    }
+}
+
+.days-label {
+    font-size: 30px;
+}
+
+.seconds {
+    margin-top: 10px;
+    font-size: 32px;
+    font-family: "Monda_bo", Georgia, sans-serif;
+    width: auto;
+    text-align: center;
+    color: #efd133;
+}
+
+.container {
+    position: absolute;
+}
+
+.days {
+    font-size: 40px;
+    width: auto;
+    text-align: center;
+    color: #efd133;
+}
+
+.words {
+    font-size: 40px;
+    font-family: 'Regular', cursive;
+    width: auto;
+    text-align: center;
+    color: #efd133;
+    padding-top: 105px;
+    /* position: absolute; */
+}
+
+#text {
+    width: 500px;
+    height: 200px;
+    color: #cab2c5;
+    margin: auto;
+    font-size: 31px;
+    font-family: "方正喵呜体";
+    margin-top: 460px;
+}
+
+.page_two {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.type_words {
+    z-index: 999;
+    color: #fff;
+    position: fixed;
+    text-align: center;
+    width: 500px;
+    height: 200px;
+    font-size: 22px;
+    top: 200px;
+}
+
+/* 文字动画 */
+
+.bounce {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 750px;
+    color: white;
+    font-family: "Monda_bo", Georgia, sans-serif;
+    font-weight: bold;
+    height: 200px;
+    font-size: 75px;
+    white-space: nowrap;
+    margin-top: 400px;
+    text-decoration:blink;
+}
+
+.letter {
+    animation: bounce 0.75s cubic-bezier(0.05, 0, 0.2, 1) infinite alternate;
+    display: inline-block;
+    transform: translate3d(0, 0, 0);
+    margin-top: 0.5em;
+    text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+    /* font: normal 500 6rem 'Varela Round', sans-serif; */
+}
+
+.letter:nth-child(1) {
+    animation-delay: 0s;
+    color: #ea757f;
+}
+
+.letter:nth-child(2) {
+    animation-delay: 0.0833333333s;
+    color: #7577ea;
+}
+
+.letter:nth-child(3) {
+    animation-delay: 0.1666666667s;
+    color: #8dea75;
+}
+
+.letter:nth-child(4) {
+    animation-delay: 0.25s;
+    color: #e2e623;
+}
+
+.letter:nth-child(5) {
+    animation-delay: 0.3333333333s;
+    color: #ffc107;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate3d(0, 0, 0);
+        text-shadow: rgba(255, 255, 255, 0.4) 0 0 0.05em;
+    }
+    100% {
+        transform: translate3d(0, -1em, 0);
+        text-shadow: rgba(255, 255, 255, 0.4) 0 1em 0.35em;
+    }
+}

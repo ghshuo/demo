@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>❤</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div class="textCon">
+        <div class="backdrop">
+            <img src="image/1.jpeg" class="bg">
+            <img src="image/2.jpeg" class="bg">
+            <img src="image/3.jpeg" class="bg">
+            <img src="image/4.jpeg" class="bg">
+        </div>
+        <div class="words">王梦迪小仙女,今天是认识你的第</div>
+        <div class="days">
+            <span class="days-number"></span>
+            <span class="days-label">天</span>
+        </div>
+        <div class="seconds"></div>
+        <div class="heart">
+            <span>ǝʌol</span>
+        </div>
+        <div class="bounce">
+            <span class="letter">有</span>
+            <span class="letter">幸</span>
+            <span class="letter">遇</span>
+            <span class="letter">见</span>
+            <span class="letter">你</span>
+        </div>
+    </div>
+    <div class="page_two" style="display: none;">
+		<div class="type_words"></div>
+	</div>
+
+    <embed src="js/music.mp3" hidden="true" />
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.fireworks.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/love.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function (e) {
+            $(".backdrop").fullImages({
+                ImgWidth: 750,
+                ImgHeight: 980,
+                autoplay: 3500,
+                fadeTime: 1500
+            });
+
+        });
+    </script>
+</body>
+
+</html>
