@@ -250,6 +250,10 @@ img.bg {
     animation-delay: 0.3333333333s;
     color: #ffc107;
 }
+.letter:nth-child(6) {
+    animation-delay: 0.3333333333s;
+    color: #b965c2;
+}
 
 @keyframes bounce {
     0% {
